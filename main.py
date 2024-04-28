@@ -4,6 +4,7 @@ import time
 import system.flop_pak
 import system.notes
 import json
+from random import randrange
 sys.path.append('system') 
 os.system('clear')
 
@@ -79,7 +80,16 @@ print("Starting")
 time.sleep(loadingtime)
 Check = False
 
-print('FlopOS 1.0\nLastest release')
+with open('system/daily.json') as f:
+  data = json.load(f)
+
+category_data = data['daily']
+number = randrange(1, 5)
+number = str(number)
+
+result = category_data[number]
+
+print('FlopOS 1.2\nRandom FlopOS Fact:' + result)
 
 while 1 < run:
   checkMemory()
@@ -122,7 +132,7 @@ while 1 < run:
   elif cmd == "prompt.old":
     prompt = promptold
   elif cmd == "version":
-    print("This is FlopOS 1! The first version of the FlopOS operating system. Last update date: 02.21.2024")
+    print("This is FlopOS 1! The first version of the FlopOS operating system. Last upda"+"te date: 04.27.2024")
 #  elif cmd == "dev panel":
 #    if role
   elif cmd == "ls":
